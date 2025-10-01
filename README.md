@@ -1,4 +1,35 @@
-# TodoAngular
+# Todo Angular
+
+A simple todo application built with Angular that uses local browser storage to save and manage todos. This app allows you to create, edit, delete, and mark todos as complete, with all data persisted locally in your browser's storage.
+
+## Features
+
+- ✅ Create new todos
+- ✏️ Edit existing todos
+- 🗑️ Delete todos
+- ✅ Mark todos as complete/incomplete
+- 💾 Automatic local storage persistence
+- 📱 Responsive design
+- 🎨 Clean and modern UI
+
+## Prerequisites
+
+Before running this project, make sure you have the following installed:
+- [Node.js](https://nodejs.org/) (version 16 or higher)
+- [Angular CLI](https://angular.dev/tools/cli) (version 20.3.3 or higher)
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd todo-angular
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.3.
 
@@ -53,6 +84,44 @@ ng e2e
 ```
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Usage
+
+Once the development server is running, you can:
+
+1. **Add a new todo**: Type your task in the input field and press Enter or click the Add button
+2. **Mark as complete**: Click the checkbox next to any todo to mark it as complete
+3. **Edit a todo**: Click on the todo text to edit it inline
+4. **Delete a todo**: Click the delete button (🗑️) next to any todo
+5. **View all todos**: All your todos are automatically saved and will persist between browser sessions
+
+## Data Storage
+
+This application uses the browser's `localStorage` API to persist your todos. This means:
+- Your todos are saved locally on your device
+- Data persists between browser sessions
+- No server or database required
+- Data is private to your browser
+
+## Technologies Used
+
+- **Angular 20.3.3** - Frontend framework
+- **TypeScript** - Programming language
+- **SCSS** - Styling
+- **Local Storage API** - Data persistence
+- **Angular CLI** - Development tools
+
+## Contributing
+
+Feel free to contribute to this project by:
+1. Forking the repository
+2. Creating a feature branch
+3. Making your changes
+4. Submitting a pull request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
 
 ## Additional Resources
 
