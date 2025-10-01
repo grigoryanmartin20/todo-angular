@@ -27,6 +27,8 @@
 							}
 						],
 						"styles": [
+							"public/styles/mixin.scss",
+							"public/styles/theme.scss",
 							"src/styles.scss"
 						]
 					},

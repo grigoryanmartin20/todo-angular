@@ -1,0 +1,49 @@
+@use "sass:string";
+@use "sass:math";
+
+$space-amounts: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 100);
+$font-size-list: (8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42);
+$sides: (top, bottom, left, right);
+$text-align-directions: (left, center, right);
+
+@each $space in $space-amounts {
+	@each $side in $sides {
+		.m#{string.slice($side, 0, 1)}-#{$space} {
+			margin-#{$side}: #{$space}px !important;
+		}
+
+		.p#{string.slice($side, 0, 1)}-#{$space} {
+			padding-#{$side}: #{$space}px !important;
+		}
+	}
+
+	.m-#{$space} {
+		margin: #{$space}px !important;
+	}
+
+	.p-#{$space} {
+		padding: #{$space}px !important;
+	}
+}
+
+@each $side in $sides {
+	.m#{string.slice($side, 0, 1)}-auto {
+		margin-#{$side}: auto !important;
+	}
+
+	.p#{string.slice($side, 0, 1)}-auto {
+		padding-#{$side}: auto !important;
+	}
+}
+
+@each $size in $font-size-list {
+    .fs-#{$size} {
+      	font-size: math.div($size, 16) + rem !important;
+    }
+}
+
+@each $direction in $text-align-directions {
+    .text-#{$direction} {
+      	text-align: $direction !important;
+    }
+}

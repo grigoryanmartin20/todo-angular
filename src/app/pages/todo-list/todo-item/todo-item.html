@@ -1,0 +1,56 @@
+<mat-card appearance="outlined" animate.enter="enter-animation" class="mb-10">
+	<mat-card-content>
+		<div fxLayout="row">
+			<div fxFlex="30">
+				<h3>{{ todo()?.title }}</h3>
+				@if (todo()?.description) {
+					<p class="fs-12 mt-5 ellipsis" [title]="todo()?.description">{{ todo()?.description }}</p>
+				}
+			</div>
+			<div fxFlex="60">
+				<div fxLayout="row">
+					<div fxFlex="50">
+						<p>Status: <span>In Progress</span></p>
+					</div>
+					<div fxFlex="50">
+						<p>Created: {{ todo()?.createdAt | date:'dd/MM/yyyy' }}</p>
+					</div>
+				</div>
+				<div fxLayout="row">
+					<div fxFlex="30">
+						<p class="fs-12 mt-5">Due Date: {{ (todo()?.dueDate | date:'dd/MM/yyyy') || 'N/A' }}</p>
+					</div>
+					<div fxFlex="30">
+						<p class="fs-12 mt-5">Start Date: {{ (todo()?.startDate | date:'dd/MM/yyyy') || 'N/A' }}</p>
+					</div>
+					<div fxFlex="30">
+						<p class="fs-12 mt-5">End Date: {{ (todo()?.endDate | date:'dd/MM/yyyy') || 'N/A' }}</p>
+					</div>
+				</div>
+			</div>
+			<div fxFlex="10" fxLayoutAlign="end center">
+				<button matIconButton [matMenuTriggerFor]="menu">
+					<mat-icon fontIcon="menu"></mat-icon>
+				</button>
+			</div>
+		</div>
+	</mat-card-content>
+</mat-card>
+<mat-menu #menu="matMenu">
+	<button mat-menu-item (click)="openEditDialog.emit()">
+		<mat-icon fontIcon="edit"></mat-icon>
+		<span>Edit</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon fontIcon="check"></mat-icon>
+		<span>Mark as Complete</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon fontIcon="close"></mat-icon>
+		<span>Mark as Failed</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon fontIcon="delete"></mat-icon>
+		<span>Delete</span>
+	</button>
+</mat-menu>

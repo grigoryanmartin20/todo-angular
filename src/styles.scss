@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	color-scheme: dark;
+	background-color: var(--mat-sys-surface);
+	color: var(--mat-sys-on-surface);
+	font: var(--mat-sys-body-medium);
+	font-family: Lato, Roboto, "Helvetica Neue", sans-serif;
+	margin: 0;
+}
+
+.container {
+	padding: 20px;
+}
+
+.enter-animation {
+	animation: slide-fade 1s;
+}
+
+.mat-mdc-form-field {
+	width: 100%;
+}
+
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@keyframes slide-fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

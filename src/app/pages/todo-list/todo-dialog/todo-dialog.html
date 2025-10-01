@@ -1,0 +1,68 @@
+<h3 mat-dialog-title>New Todo</h3>
+<mat-dialog-content>
+	<form [formGroup]="form">
+		<!-- Todo Information -->
+		<mat-card appearance="outlined">
+			<mat-card-header class="pt-5">
+				<mat-card-title class="fs-16 pb-5">Todo Information</mat-card-title>
+			</mat-card-header>
+			<mat-card-content class="pb-5">
+				<mat-form-field appearance="fill">
+					<mat-label>Title</mat-label>
+					<input matInput formControlName="title" placeholder="Title">
+					<mat-error>Title is required</mat-error>
+				</mat-form-field>
+				<mat-form-field appearance="fill" class="mt-10">
+					<mat-label>Description</mat-label>
+					<textarea matInput 
+						formControlName="description" 
+						placeholder="Description" 
+						cdkTextareaAutosize
+						cdkAutosizeMinRows="4" 
+						cdkAutosizeMaxRows="8"
+						maxlength="1000"
+					></textarea>
+					<mat-hint align="end">{{ form.get('description').value.length }}/1000</mat-hint>
+				</mat-form-field>
+			</mat-card-content>
+		</mat-card>
+		<!-- Todo Date -->
+		<mat-card class="mt-20" appearance="outlined">
+			<mat-card-header class="pt-5">
+				<mat-card-title class="fs-16 pb-5">Todo Date (Optional)</mat-card-title>
+			</mat-card-header>
+			<mat-card-content class="pb-0">
+				<div fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="10px">
+					<div fxFlex="32">
+						<mat-form-field appearance="fill">
+							<mat-label>Start Date</mat-label>
+							<input matInput [matDatepicker]="startDatePicker" formControlName="startDate">
+							<mat-datepicker-toggle matIconSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+							<mat-datepicker #startDatePicker></mat-datepicker>
+						</mat-form-field>
+					</div>
+					<div fxFlex="32">
+						<mat-form-field appearance="fill">
+							<mat-label>End Date</mat-label>
+							<input matInput [matDatepicker]="endDatePicker" formControlName="endDate">
+							<mat-datepicker-toggle matIconSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+							<mat-datepicker #endDatePicker></mat-datepicker>
+						</mat-form-field>
+					</div>
+					<div fxFlex="32">
+						<mat-form-field appearance="fill">
+							<mat-label>Due Date</mat-label>
+							<input matInput [matDatepicker]="dueDatePicker" formControlName="dueDate">
+							<mat-datepicker-toggle matIconSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+							<mat-datepicker #dueDatePicker></mat-datepicker>
+						</mat-form-field>
+					</div>
+				</div>
+			</mat-card-content>
+		</mat-card>
+	</form>
+</mat-dialog-content>
+<mat-dialog-actions>
+	<button matButton mat-dialog-close>Cancel</button>
+	<button matButton="filled" [disabled]="form.invalid" (click)="saveTodo()">Save</button>
+</mat-dialog-actions>

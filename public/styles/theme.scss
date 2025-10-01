@@ -1,0 +1,21 @@
+@use '@angular/material' as mat;
+
+:root {
+	@include mat.button-overrides((
+		filled-label-text-font: Roboto
+	));
+
+	@include mat.dialog-overrides((
+		container-elevation-shadow: 0px 0px 6px 1px #1a6767
+	));
+}
+
+html {
+	@include mat.theme(
+		(
+			color: (primary: mat.$cyan-palette, tertiary: mat.$orange-palette), 
+			typography: Lato,
+			density: 0,
+		)
+	);
+}

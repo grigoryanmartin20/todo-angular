@@ -1,0 +1,20 @@
+<div class="container" animate.enter="enter-animation">
+	<div fxLayout="row" fxLayoutAlign="space-between">
+		<h1>Todo List</h1>
+		<button matButton="filled" (click)="openTodoDialog(null)">
+			<mat-icon fontIcon="add"></mat-icon> New Todo
+		</button>
+	</div>
+	<div class="todo-list">
+		@for (todo of todoList(); track todo.uuid) {
+			<app-todo-item 
+				[todo]="todo"
+				(openEditDialog)="openTodoDialog(todo)"
+			></app-todo-item>
+		} @empty {
+			<div class="text-center fs-16 mt-40">
+				<p>No todos found</p>
+			</div>
+		}
+	</div>
+</div>
