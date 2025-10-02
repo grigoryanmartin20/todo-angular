@@ -10,7 +10,9 @@
 			<div fxFlex="60">
 				<div fxLayout="row">
 					<div fxFlex="50">
-						<p>Status: <span>In Progress</span></p>
+						@let status = getStatus();
+						
+						<p>Status: <span class="status-{{ status.color }}">{{ status.label }}</span></p>
 					</div>
 					<div fxFlex="50">
 						<p>Created: {{ todo()?.createdAt | date:'dd/MM/yyyy' }}</p>
@@ -37,19 +39,21 @@
 	</mat-card-content>
 </mat-card>
 <mat-menu #menu="matMenu">
-	<button mat-menu-item (click)="openEditDialog.emit()">
-		<mat-icon fontIcon="edit"></mat-icon>
-		<span>Edit</span>
-	</button>
-	<button mat-menu-item>
-		<mat-icon fontIcon="check"></mat-icon>
-		<span>Mark as Complete</span>
-	</button>
-	<button mat-menu-item>
-		<mat-icon fontIcon="close"></mat-icon>
-		<span>Mark as Failed</span>
-	</button>
-	<button mat-menu-item>
+	@if (!todo()?.completed && !isTodoFailed()) {
+		<button mat-menu-item (click)="openEditDialog.emit()">
+			<mat-icon fontIcon="edit"></mat-icon>
+			<span>Edit</span>
+		</button>
+		<button mat-menu-item (click)="markAsComplete()">
+			<mat-icon fontIcon="check"></mat-icon>
+			<span>Mark as Complete</span>
+		</button>
+		<button mat-menu-item (click)="markAsFailed()">
+			<mat-icon fontIcon="close"></mat-icon>
+			<span>Mark as Failed</span>
+		</button>
+	}
+	<button mat-menu-item (click)="openDeleteConfirmationDialog()">
 		<mat-icon fontIcon="delete"></mat-icon>
 		<span>Delete</span>
 	</button>

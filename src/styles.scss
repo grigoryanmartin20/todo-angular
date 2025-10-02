@@ -4,6 +4,24 @@
 	padding: 0;
 }
 
+/* Scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #38403f;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #00dddd;
+    border-radius: 5px;
+    min-height: 50px;
+}
+/* End of scroll bar */
+
 html,
 body {
 	height: 100%;
@@ -22,10 +40,6 @@ body {
 	padding: 20px;
 }
 
-.enter-animation {
-	animation: slide-fade 1s;
-}
-
 .mat-mdc-form-field {
 	width: 100%;
 }
@@ -34,6 +48,10 @@ body {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+.enter-animation {
+	animation: slide-fade 1s;
 }
 
 @keyframes slide-fade {

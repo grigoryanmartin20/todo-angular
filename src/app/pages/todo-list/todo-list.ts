@@ -46,4 +46,26 @@ export class TodoList implements OnInit {
 			}
 		});
 	}
+
+	public markAsComplete(todo: Todo): void {
+		todo.completed = true;
+
+		this.updateTodo(todo);
+	}
+
+	public markAsFailed(todo: Todo): void {
+		todo.failed = true;
+
+		this.updateTodo(todo);
+	}
+
+	public deleteTodo(todo: Todo): void {
+		this.todoList.set(this.todoList().filter((currentTodo: Todo) => currentTodo.uuid !== todo.uuid));
+		this.todoService.deleteTodo(todo);
+	}
+
+	private updateTodo(todo: Todo): void {
+		this.todoList.set(this.todoList().map((item: Todo) => item.uuid === todo.uuid ? todo : item));
+		this.todoService.updateTodo(todo);
+	}
 }

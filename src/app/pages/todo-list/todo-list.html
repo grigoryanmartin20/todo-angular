@@ -1,4 +1,4 @@
-<div class="container" animate.enter="enter-animation">
+<div class="container pb-0" animate.enter="enter-animation">
 	<div fxLayout="row" fxLayoutAlign="space-between">
 		<h1>Todo List</h1>
 		<button matButton="filled" (click)="openTodoDialog(null)">
@@ -10,6 +10,9 @@
 			<app-todo-item 
 				[todo]="todo"
 				(openEditDialog)="openTodoDialog(todo)"
+				(onMarkAsComplete)="markAsComplete(todo)"
+				(onMarkAsFailed)="markAsFailed(todo)"
+				(onDelete)="deleteTodo(todo)"
 			></app-todo-item>
 		} @empty {
 			<div class="text-center fs-16 mt-40">

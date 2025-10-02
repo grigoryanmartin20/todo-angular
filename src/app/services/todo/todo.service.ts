@@ -30,4 +30,12 @@ export class TodoService {
 
 		this.storage.set('todos', todos);
 	}
+
+	public deleteTodo(todo: Todo): void {
+		let todos: Array<Todo> = this.getTodos();
+
+		todos = todos.filter((item: Todo) => item.uuid !== todo.uuid);
+
+		this.storage.set('todos', todos);
+	}
 }

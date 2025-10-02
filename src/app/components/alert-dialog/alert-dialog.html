@@ -1,0 +1,10 @@
+<h3 mat-dialog-title>{{ dialogData?.title }}</h3>
+<mat-dialog-content>
+	<p>{{ dialogData?.message }}</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+	@if (dialogData?.hasCancelButton) {
+		<button matButton mat-dialog-close>{{ dialogData?.cancelButtonText || 'Cancel' }}</button>
+	}
+	<button matButton="filled" (click)="closeDialogWithResult(true)">{{ dialogData?.confirmButtonText || 'OK' }}</button>
+</mat-dialog-actions>
