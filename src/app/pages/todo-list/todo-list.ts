@@ -31,7 +31,7 @@ export class TodoList implements OnInit {
 
 	public openTodoDialog(todo: Todo): void {
 		this.dialog.open(TodoDialog, {
-			minWidth: '700px',
+			maxWidth: '700px',
 			autoFocus: false,
 			data: todo
 		}).afterClosed().subscribe((item: Todo) => {

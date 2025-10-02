@@ -1,36 +1,36 @@
 <mat-card appearance="outlined" animate.enter="enter-animation" class="mb-10">
 	<mat-card-content>
-		<div fxLayout="row">
-			<div fxFlex="30">
+		<div fxLayout="row" fxLayout.xs="column" fxLayoutGap.sm="10px">
+			<div fxFlex="30" class="todo-item-title">
 				<h3>{{ todo()?.title }}</h3>
 				@if (todo()?.description) {
 					<p class="fs-12 mt-5 ellipsis" [title]="todo()?.description">{{ todo()?.description }}</p>
 				}
 			</div>
 			<div fxFlex="60">
-				<div fxLayout="row">
-					<div fxFlex="50">
+				<div fxLayout="row" fxLayoutGap="10px" fxLayout.sm="column" fxLayout.xs="column">
+					<div fxFlex="32">
 						@let status = getStatus();
 						
 						<p>Status: <span class="status-{{ status.color }}">{{ status.label }}</span></p>
 					</div>
-					<div fxFlex="50">
+					<div fxFlex="32">
 						<p>Created: {{ todo()?.createdAt | date:'dd/MM/yyyy' }}</p>
 					</div>
 				</div>
-				<div fxLayout="row">
-					<div fxFlex="30">
+				<div fxLayout="row" fxLayoutGap="10px" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap.xs="0">
+					<div fxFlex="32">
 						<p class="fs-12 mt-5">Due Date: {{ (todo()?.dueDate | date:'dd/MM/yyyy') || 'N/A' }}</p>
 					</div>
-					<div fxFlex="30">
+					<div fxFlex="32">
 						<p class="fs-12 mt-5">Start Date: {{ (todo()?.startDate | date:'dd/MM/yyyy') || 'N/A' }}</p>
 					</div>
-					<div fxFlex="30">
+					<div fxFlex="32">
 						<p class="fs-12 mt-5">End Date: {{ (todo()?.endDate | date:'dd/MM/yyyy') || 'N/A' }}</p>
 					</div>
 				</div>
 			</div>
-			<div fxFlex="10" fxLayoutAlign="end center">
+			<div fxFlex="10" fxLayoutAlign="end center" class="todo-item-menu">
 				<button matIconButton [matMenuTriggerFor]="menu">
 					<mat-icon fontIcon="menu"></mat-icon>
 				</button>
