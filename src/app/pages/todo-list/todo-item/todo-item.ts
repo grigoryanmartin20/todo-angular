@@ -1,5 +1,6 @@
 import { Component, inject, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 // Material
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,7 +17,7 @@ import { CommonService } from '@services/common/common.service';
 	selector: 'app-todo-item',
 	imports: [
 		MatCardModule, FlexLayoutModule, CommonModule, MatButtonModule, 
-		MatIconModule, MatMenuModule
+		MatIconModule, MatMenuModule, DragDropModule
 	],
 	templateUrl: './todo-item.html',
 	styleUrl: './todo-item.scss'

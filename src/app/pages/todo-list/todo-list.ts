@@ -1,4 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
+import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 // Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,7 +16,7 @@ import { TodoItem } from './todo-item/todo-item';
 
 @Component({
 	selector: 'app-todo-list',
-	imports: [MatButtonModule, MatIconModule, FlexLayoutModule, MatDialogModule, TodoItem],
+	imports: [MatButtonModule, MatIconModule, FlexLayoutModule, MatDialogModule, TodoItem, DragDropModule],
 	templateUrl: './todo-list.html',
 	styleUrl: './todo-list.scss'
 })
@@ -62,6 +63,11 @@ export class TodoList implements OnInit {
 	public deleteTodo(todo: Todo): void {
 		this.todoList.set(this.todoList().filter((currentTodo: Todo) => currentTodo.uuid !== todo.uuid));
 		this.todoService.deleteTodo(todo);
+	}
+
+	public dropToDo(event: CdkDragDrop<Todo>) {
+		moveItemInArray(this.todoList(), event.previousIndex, event.currentIndex);
+		this.todoService.reorderTodos(this.todoList());
 	}
 
 	private updateTodo(todo: Todo): void {

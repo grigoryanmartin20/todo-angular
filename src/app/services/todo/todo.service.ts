@@ -38,4 +38,8 @@ export class TodoService {
 
 		this.storage.set('todos', todos);
 	}
+
+	public reorderTodos(todos: Array<Todo>): void {
+		this.storage.set('todos', todos);
+	}
 }

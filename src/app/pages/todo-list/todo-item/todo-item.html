@@ -1,6 +1,7 @@
-<mat-card appearance="outlined" animate.enter="enter-animation" class="mb-10">
+<mat-card appearance="outlined" animate.enter="enter-animation" class="mb-10" cdkDrag>
 	<mat-card-content>
 		<div fxLayout="row" fxLayout.xs="column" fxLayoutGap.sm="10px">
+			<mat-icon fontIcon="drag_indicator" class="todo-item-drag-icon" cdkDragHandle></mat-icon>
 			<div fxFlex="30" class="todo-item-title">
 				<h3>{{ todo()?.title }}</h3>
 				@if (todo()?.description) {
@@ -37,6 +38,7 @@
 			</div>
 		</div>
 	</mat-card-content>
+	<div class="drag-placeholder" *cdkDragPlaceholder></div>
 </mat-card>
 <mat-menu #menu="matMenu">
 	@if (!todo()?.completed && !isTodoFailed()) {

@@ -1,3 +1,16 @@
+.cdk-drag-preview {
+	box-sizing: border-box;
+	box-shadow: 0px 0px 6px 1px #1a6767;
+}
+
+.cdk-drag-animating {
+	transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.todo-item-title h3 {
+	position: relative;
+}
+
 .status-green {
 	color: green;
 }
@@ -14,7 +27,33 @@ button.mat-mdc-menu-item {
 	min-width: 180px;
 }
 
+.todo-item-drag-icon {
+	position: absolute;
+    top: 5px;
+    left: 2px;
+    font-size: 14px;
+    cursor: grab;
+}
+
+.drag-placeholder {
+	border: dotted 3px var(--mat-sys-primary);
+	min-height: 79px;
+	border-radius: var(--mat-sys-corner-medium);
+	margin-bottom: 10px;
+	transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+@media (max-width: 959px) {
+	.drag-placeholder {
+		height: 179px;
+	}
+}
+
 @media (max-width: 599px) {
+	.mat-mdc-card-content {
+		min-height: 217px;
+	}
+	
 	.todo-item-title {
 		margin-bottom: 15px;
 	}
@@ -25,5 +64,9 @@ button.mat-mdc-menu-item {
 		top: 50%;
 		transform: translateY(-50%);
 		max-height: 10%;
+	}
+
+	.drag-placeholder {
+		height: 219px;
 	}
 }
